@@ -9,6 +9,7 @@ export const getStaticProps = async () => {
     props: {
       baconIpsum: (await baconIpsum.text()).repeat(1000),
     },
+    revalidate: 10,
   };
 };
 
