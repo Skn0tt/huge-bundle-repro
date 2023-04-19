@@ -1,4 +1,5 @@
 import { InferGetStaticPropsType } from "next";
+import styles from "../styles/Home.module.css"
 
 export const getStaticProps = async () => {
   const baconIpsum = await fetch(
@@ -7,11 +8,11 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      baconIpsum: (await baconIpsum.text()).repeat(10000),
+      baconIpsum: (await baconIpsum.text()).repeat(100),
     },
   };
 };
 
 export default function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
-  return <main>{props.baconIpsum}</main>;
+  return <main className={styles.main}>{props.baconIpsum}</main>;
 }
